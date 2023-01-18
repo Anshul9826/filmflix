@@ -39,4 +39,5 @@ export const createSessionId = async () => {
       console.log(error);
     }
   }
+  return null;
 };
