@@ -13,10 +13,13 @@ export default makeStyles((theme) => ({
   poster: {
     borderRadius: '20px',
     boxShadow: '0.5em 1em 1em rgb(64, 64, 70)',
-    width: '80%',
-    [theme.breakpoints.down('md')]: {
+    width: '90%',
+    height: '90%',
+    margin: 'auto',
+    [theme.breakpoints.down('lg')]: {
       margin: '0 auto',
       width: '50%',
+      height: '90%',
     },
     [theme.breakpoints.down('sm')]: {
       margin: '0 auto',

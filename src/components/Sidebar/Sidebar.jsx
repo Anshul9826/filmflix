@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Divider, List, ListItem, ListItemText, ListSubheader, Box, CircularProgress } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/styles';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import useStyles from './styles';
 import redLogo from '../../images/RedLogo.svg';
 import blueLogo from '../../images/BlueLogo.svg';
@@ -15,11 +15,16 @@ const categories = [
   { label: 'Upcoming', value: 'upcoming' },
 ];
 
-const Sidebar = () => {
+const Sidebar = ({ setMobileOpen }) => {
+  const { genreIdOrCategoryName } = useSelector((state) => state.currentGenreOrCategory);
   const theme = useTheme();
   const classes = useStyles();
   const { data, isFetching } = useGetGenresQuery();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    setMobileOpen((prev) => !prev);
+  }, [genreIdOrCategoryName]);
 
   return (
     <>
